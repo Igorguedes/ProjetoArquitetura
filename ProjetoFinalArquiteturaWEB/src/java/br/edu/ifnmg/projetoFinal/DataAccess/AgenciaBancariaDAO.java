@@ -14,24 +14,22 @@ import javax.ejb.Singleton;
  *
  * @author Igor
  */
-
 @Singleton
-public class AgenciaBancariaDAO  extends DAOGenerico<AgenciaBancaria> implements AgenciaBancariaRepositorio{
+public class AgenciaBancariaDAO extends DAOGenerico<AgenciaBancaria> implements AgenciaBancariaRepositorio {
 
-   
     public AgenciaBancariaDAO() {
         super(AgenciaBancaria.class);
     }
 
     @Override
     public List<AgenciaBancaria> Buscar(AgenciaBancaria filtro) {
-        if (filtro != null) {
-            return this.Like("nome", filtro.getNome())
-                    .IgualA("id", filtro.getId())
-                    .Buscar();
-        }
-        return this.Buscar();
-    
+        return this.Like("nome", filtro.getNome())
+                .IgualA("id", filtro.getId())
+                .Like("telefone", filtro.getTelefone())
+                .Like("endereco", filtro.getEndereco())
+                .IgualA("numeroAgencia", filtro.getNumeroAgencia())
+                .Buscar();
+
     }
-    
+
 }

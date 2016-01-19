@@ -5,8 +5,8 @@
  */
 package br.edu.ifnmg.projetoFinal.DataAccess;
 
-import br.edu.ifnmg.projetoFinal.DomainModel.Cargo;
-import br.edu.ifnmg.projetoFinal.DomainModel.Repositorio.CargoRepositorio;
+import br.edu.ifnmg.projetoFinal.DomainModel.Repositorio.SecretariaRepositorio;
+import br.edu.ifnmg.projetoFinal.DomainModel.Secretaria;
 import java.util.List;
 import javax.ejb.Singleton;
 
@@ -15,17 +15,17 @@ import javax.ejb.Singleton;
  * @author Igor
  */
 @Singleton
-public class CargoDAO extends DAOGenerico<Cargo> implements CargoRepositorio {
+public class SecretariaDAO extends DAOGenerico<Secretaria> implements SecretariaRepositorio {
 
-    public CargoDAO() {
-        super(Cargo.class);
+    public SecretariaDAO() {
+        super(Secretaria.class);
     }
 
     @Override
-    public List<Cargo> Buscar(Cargo filtro) {
-        return this.Like("nome", filtro.getNome())
+    public List<Secretaria> Buscar(Secretaria filtro) {
+        return Like("nome", filtro.getNome())
                 .IgualA("id", filtro.getId())
                 .Buscar();
-
     }
+
 }

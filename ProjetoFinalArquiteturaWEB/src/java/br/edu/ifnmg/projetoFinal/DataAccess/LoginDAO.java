@@ -12,7 +12,7 @@ import javax.ejb.Singleton;
 
 /**
  *
- * @author André Fellype
+ * @author Igor
  */
 @Singleton
 public class LoginDAO extends DAOGenerico<Login> implements LoginRepositorio {
@@ -24,7 +24,7 @@ public class LoginDAO extends DAOGenerico<Login> implements LoginRepositorio {
     @Override
     public List<Login> Buscar(Login filtro) {
         return Like("usuario", filtro.getUsuario())
-                .IgualA("login", "ASC")
+                .OrderBy("login", "ASC")
                 .Buscar();
     }
 

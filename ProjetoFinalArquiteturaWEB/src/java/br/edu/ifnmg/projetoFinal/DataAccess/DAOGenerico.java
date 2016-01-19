@@ -15,7 +15,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author André Fellype
+ * @author Igor
  */
 public abstract class DAOGenerico<T> implements Repositorio<T> {
 
