@@ -15,7 +15,7 @@ import javax.ejb.EJB;
 
 /**
  *
- * @author André Fellype
+ * @author Jardel
  */
 @Named(value = "loginController")
 @SessionScoped

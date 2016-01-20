@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author André Fellype
+ * @author Jardel
  */
 public class ControllerGenerico<T> {
 

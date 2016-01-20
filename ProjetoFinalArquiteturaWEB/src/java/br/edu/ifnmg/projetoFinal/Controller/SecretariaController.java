@@ -15,7 +15,7 @@ import javax.enterprise.context.SessionScoped;
 
 /**
  *
- * @author André Fellype
+ * @author Jardel
  */
 @Named(value = "secretariaController")
 @SessionScoped
