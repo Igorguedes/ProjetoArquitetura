@@ -16,16 +16,24 @@ import javax.ejb.Singleton;
  */
 @Singleton
 public class LoginDAO extends DAOGenerico<Login> implements LoginRepositorio {
-
+    
     public LoginDAO() {
         super(Login.class);
     }
-
+    
     @Override
     public List<Login> Buscar(Login filtro) {
         return Like("usuario", filtro.getUsuario())
-                .OrderBy("login", "ASC")
+                .OrderBy("usuario", "ASC")
                 .Buscar();
     }
-
+    
+    public Login Login(Login login) {
+        List<Login> lista = IgualA("usuario", login.getUsuario()).IgualA("senha", login.getSenha()).Buscar();
+        if (lista.isEmpty()) {
+            return null;
+        } else {
+            return lista.get(0);
+        }
+    }
 }

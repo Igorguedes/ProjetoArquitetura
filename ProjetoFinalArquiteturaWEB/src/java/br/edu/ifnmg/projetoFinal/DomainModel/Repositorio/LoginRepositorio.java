@@ -13,6 +13,7 @@ import javax.ejb.Local;
  * @author André Fellype
  */
 @Local
-public interface LoginRepositorio extends Repositorio<Login>{
-    
+public interface LoginRepositorio extends Repositorio<Login> {
+
+    public Login Login(Login login);
 }

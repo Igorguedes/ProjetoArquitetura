@@ -1,14 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
-    </h:body>
-</html>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <ui:define name="content">
+        <p:panelGrid columns="2" style="position: relative; left: 40%">
+            <f:facet name="header">
+                Área de Acesso
+            </f:facet>
+            Usuário:
+            <p:inputText value="#{loginController.entidade.usuario}" required="true" requiredMessage="Campo de Usuário Obrigatório" />
+            Senha:
+            <p:password value="#{loginController.entidade.senha}" required="true" requiredMessage="Campo de Senha Obrigatório" />
+            <f:facet name="footer">
+                <p:commandButton value="Entrar" style="width: 100%" ajax="false" action="#{loginController.login()}" />
+            </f:facet>
+        </p:panelGrid>
+    </ui:define>
+
+</ui:composition>

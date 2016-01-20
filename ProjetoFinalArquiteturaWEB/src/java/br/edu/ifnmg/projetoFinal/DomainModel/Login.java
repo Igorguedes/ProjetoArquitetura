@@ -30,6 +30,9 @@ public class Login implements Serializable {
     @Column(length = 250, nullable = false)
     private String senha;
 
+    @Column(length = 250, nullable = false)
+    private String nivel;
+
     public Long getId() {
         return id;
     }
@@ -52,6 +55,14 @@ public class Login implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
     }
 
     @Override
