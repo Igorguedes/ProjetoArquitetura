@@ -7,6 +7,6 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets" >
     <f:facet name="footer">
         <p:commandButton value="Salvar" ajax="false" action="#{controller.salvar()}"/>
-        <p:commandButton ajax="false" value="Voltar" action="#{controller.voltar()}"/>
+        <p:commandButton ajax="false" value="Voltar" action="#{controller.voltar()}" immediate="true"/>
     </f:facet>
  </ui:composition>

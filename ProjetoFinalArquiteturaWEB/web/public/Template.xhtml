@@ -19,7 +19,7 @@
             <div id="top">
                 <p:menubar>
                     <p:menuitem value="Usuário" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaUsuario.xhtml" />
-                    <p:menuitem value="Secretaria" rendered="#{loginController.visibilidadeAdministrador()}" />
+                    <p:menuitem value="Secretaria" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="#{secretariaController.verificarCadastro()}" />
                     <p:menuitem value="Cargo" rendered="#{loginController.visibilidadeAdministrador()}" />
                     <p:menuitem value="Adicional" rendered="#{loginController.visibilidadeAdministrador()}" />
                     <p:menuitem value="Sair" action="#{loginController.sair()}" ajax="false" immediate="true" />

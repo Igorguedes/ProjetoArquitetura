@@ -11,12 +11,12 @@
         </f:facet>
         <p:panelGrid columns="2">
             Login:
-            <p:inputText value="#{loginController.entidade.usuario}"/>
+            <p:inputText value="#{loginController.entidade.usuario}" required="true" requiredMessage="Campo Login Obrigatório"/>
             Senha:
             <p:password value="#{loginController.entidade.senha}" feedback="true" promptLabel="Digite a Senha!" 
-                        weakLabel="Senha Fraca!" goodLabel="Senha Legal!" strongLabel="Senha Forte!" />
-            Tipo de Produção:
-            <p:selectOneRadio value="#{loginController.entidade.nivel}" >
+                        weakLabel="Senha Fraca!" goodLabel="Senha Legal!" strongLabel="Senha Forte!" required="true" requiredMessage="Campo Senha Obrigatório" />
+            Nível:
+            <p:selectOneRadio value="#{loginController.entidade.nivel}" required="true" requiredMessage="Campo Nível Obrigatório" >
                 <f:selectItem itemLabel="Administrador" itemValue="Administrador" />
                 <f:selectItem itemLabel="Coordenador" itemValue="Coordenador" />
             </p:selectOneRadio>
