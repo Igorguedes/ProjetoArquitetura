@@ -33,6 +33,18 @@ public class CargoController extends ControllerGenerico<Cargo> implements Serial
         filtro = new Cargo();
     }
 
+    @Override
+    public String novo() {
+        entidade = new Cargo();
+        return super.novo(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String limparfiltros() {
+        filtro = new Cargo();
+        return super.limparfiltros(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @PostConstruct
     public void configurar() {
         setDao(repositorio);
