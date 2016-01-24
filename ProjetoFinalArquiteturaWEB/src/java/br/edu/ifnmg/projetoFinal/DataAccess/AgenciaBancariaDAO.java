@@ -27,7 +27,6 @@ public class AgenciaBancariaDAO extends DAOGenerico<AgenciaBancaria> implements 
                 .IgualA("id", filtro.getId())
                 .Like("telefone", filtro.getTelefone())
                 .Like("endereco", filtro.getEndereco())
-                .IgualA("numeroAgencia", filtro.getNumeroAgencia())
                 .Buscar();
 
     }

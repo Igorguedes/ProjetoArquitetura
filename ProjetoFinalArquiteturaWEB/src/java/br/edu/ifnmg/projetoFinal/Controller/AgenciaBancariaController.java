@@ -28,9 +28,21 @@ public class AgenciaBancariaController extends ControllerGenerico<AgenciaBancari
     private AgenciaBancariaRepositorio repositorio;
 
     public AgenciaBancariaController() {
-        super("ListaAgenciaBancaria.xhtml", "DadosAgenciaBancaria.xhtml", "NovoAgenciaBancaria.xhtml");
+        super("ListaAgenciaBancaria.xhtml", "DadosAgenciaBancaria.xhtml", "NovaAgenciaBancaria.xhtml");
         entidade = new AgenciaBancaria();
         filtro = new AgenciaBancaria();
+    }
+
+    @Override
+    public String limparfiltros() {
+        filtro = new AgenciaBancaria();
+        return super.limparfiltros(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String novo() {
+        entidade = new AgenciaBancaria();
+        return super.novo(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @PostConstruct

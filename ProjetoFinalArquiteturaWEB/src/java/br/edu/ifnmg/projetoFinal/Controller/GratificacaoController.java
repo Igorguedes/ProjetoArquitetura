@@ -28,9 +28,21 @@ public class GratificacaoController extends ControllerGenerico<Gratificacao> imp
     private GratificacaoRepositorio repositorio;
 
     public GratificacaoController() {
-        super("ListaGratificacao.xhtml", "DadosGratificacao.xhtml", "NovoGratificacao.xhtml");
+        super("ListaGratificacao.xhtml", "DadosGratificacao.xhtml", "NovaGratificacao.xhtml");
         entidade = new Gratificacao();
         filtro = new Gratificacao();
+    }
+
+    @Override
+    public String limparfiltros() {
+        filtro = new Gratificacao();
+        return super.limparfiltros(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String novo() {
+        entidade = new Gratificacao();
+        return super.novo(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @PostConstruct
