@@ -33,6 +33,18 @@ public class FuncionarioController extends ControllerGenerico<Funcionario> imple
         filtro = new Funcionario();
     }
 
+    @Override
+    public String limparfiltros() {
+        filtro = new Funcionario();
+        return super.limparfiltros(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String novo() {
+        entidade = new Funcionario();
+        return super.novo(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @PostConstruct
     public void configurar() {
         setDao(repositorio);

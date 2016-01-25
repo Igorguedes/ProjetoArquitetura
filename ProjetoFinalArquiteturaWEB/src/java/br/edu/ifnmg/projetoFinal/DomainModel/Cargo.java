@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -27,6 +28,9 @@ public class Cargo implements Serializable {
     @Column(length = 500, nullable = false, unique = true)
     private String nome;
 
+    @ManyToOne
+    private Gratificacao gratificacao;
+
     public Long getId() {
         return id;
     }
@@ -41,6 +45,14 @@ public class Cargo implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Gratificacao getGratificacao() {
+        return gratificacao;
+    }
+
+    public void setGratificacao(Gratificacao gratificacao) {
+        this.gratificacao = gratificacao;
     }
 
     @Override
@@ -65,7 +77,7 @@ public class Cargo implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.ifnmg.projetoFinal.DomainModel.Cargo[ id=" + id + " ]";
+        return this.nome;
     }
 
 }

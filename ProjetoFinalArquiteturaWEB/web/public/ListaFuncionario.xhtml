@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Template.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <p:panelGrid columns="6">
+            Nome:
+            <p:inputText value="#{funcionarioController.filtro.nome}"/>
+            Cpf:
+            <p:inputText value="#{funcionarioController.filtro.CPF}"/>
+            RG:
+            <p:inputText value="#{funcionarioController.filtro.RG}"/>
+            <ui:include src="../componentes/botoesListagem.xhtml">
+                <ui:param name="controller" value="#{funcionarioController}"/>
+            </ui:include>
+        </p:panelGrid>
+        <p:dataTable value="#{funcionarioController.listagem}" var="item">
+            <p:column headerText="ID" width="75">
+                #{item.id}
+            </p:column>
+            <p:column headerText="Nome">
+                #{item.nome}
+            </p:column> 
+            <p:column headerText="CPF">
+                #{item.CPF}
+            </p:column> 
+            <p:column headerText="RG">
+                #{item.RG}
+            </p:column> 
+            <p:column headerText="Endereço">
+                #{item.endereco}
+            </p:column> 
+            <p:column headerText="Telefone">
+                #{item.telefone}
+            </p:column> 
+            <p:column headerText="Email">
+                #{item.email}
+            </p:column> 
+            <p:column headerText="Salário">
+                R$ #{item.salario}
+            </p:column> 
+            <p:column headerText="Status">
+                #{item.status}
+            </p:column> 
+            <p:column headerText="Cargo">
+                #{item.cargo}
+            </p:column> 
+            <p:column headerText="Secretaria">
+                #{item.secretaria}
+            </p:column> 
+            <p:column headerText="Ação" width="100">
+                <p:commandButton value="Editar" ajax="false" action="#{funcionarioController.abrir(item)}"/>
+            </p:column>
+        </p:dataTable>
+    </ui:define>
+
+</ui:composition>

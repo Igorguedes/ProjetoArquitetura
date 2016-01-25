@@ -24,8 +24,8 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     @Override
     public List<Funcionario> Buscar(Funcionario filtro) {
         return Like("nome", filtro.getNome())
-                .Like("cpf", filtro.getCPF())
-                .Like("rg", filtro.getRG())
+                .Like("CPF", filtro.getCPF())
+                .Like("RG", filtro.getRG())
                 .IgualA("id", filtro.getId())
                 .OrderBy("nome", "ASC")
                 .Buscar();

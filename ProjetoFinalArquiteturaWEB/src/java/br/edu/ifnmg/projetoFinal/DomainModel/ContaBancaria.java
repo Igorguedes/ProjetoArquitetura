@@ -31,6 +31,9 @@ public class ContaBancaria implements Serializable {
     @ManyToOne
     private AgenciaBancaria agenciaBancaria;
 
+    @ManyToOne
+    private Funcionario funcionario;
+
     public Long getId() {
         return id;
     }
@@ -53,6 +56,14 @@ public class ContaBancaria implements Serializable {
 
     public void setAgenciaBancaria(AgenciaBancaria agenciaBancaria) {
         this.agenciaBancaria = agenciaBancaria;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
     @Override

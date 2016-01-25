@@ -54,9 +54,6 @@ public class Funcionario implements Serializable {
     private Cargo cargo;
 
     @ManyToOne
-    private ContaBancaria contaBancaria;
-
-    @ManyToOne
     private Secretaria secretaria;
 
     public Long getId() {
@@ -137,14 +134,6 @@ public class Funcionario implements Serializable {
 
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
-    }
-
-    public ContaBancaria getContaBancaria() {
-        return contaBancaria;
-    }
-
-    public void setContaBancaria(ContaBancaria contaBancaria) {
-        this.contaBancaria = contaBancaria;
     }
 
     public Secretaria getSecretaria() {

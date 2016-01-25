@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <f:facet name="header">
+            Dados do Funcionário - ID: #{funcionarioController.entidade.id}
+        </f:facet>
+        <p:panelGrid columns="2">
+            Nome:
+            <p:inputText value="#{funcionarioController.entidade.nome}" required="true" requiredMessage="Campo Nome Obrigatório"/>
+            Cpf:
+            <p:inputMask mask="999.999.999-99" value="#{funcionarioController.entidade.CPF}" required="true" requiredMessage="Campo CPF Obrigatório"/>
+            RG:
+            <p:inputText value="#{funcionarioController.entidade.RG}" required="true" requiredMessage="Campo RG Obrigatório"/>
+            Endereço:
+            <p:inputText value="#{funcionarioController.entidade.endereco}" required="true" requiredMessage="Campo Endereço Obrigatório"/>
+            Telefone:
+            <p:inputText value="#{funcionarioController.entidade.telefone}" required="true" requiredMessage="Campo Telefone Obrigatório"/>
+            Email:
+            <p:inputText value="#{funcionarioController.entidade.email}" required="true" requiredMessage="Campo Email Obrigatório"/>
+            Salário:
+            <p:spinner stepFactor="0.25" value="#{funcionarioController.entidade.salario}" required="true" requiredMessage="Campo Salário Obrigatório"/>
+            Status:
+            <p:inputText value="#{funcionarioController.entidade.status}" required="true" requiredMessage="Campo Status Obrigatório"/>
+            Cargo:
+            <p:selectOneMenu value="#{funcionarioController.entidade.cargo}" converter="${cargoConvert}">
+                <f:selectItems value="#{cargoController.listagem}" />
+            </p:selectOneMenu>
+            Secretária
+            <p:selectOneMenu value="#{funcionarioController.entidade.secretaria}" converter="${secretariaConvert}">
+                <f:selectItems value="#{secretariaController.listagem}" />
+            </p:selectOneMenu>
+            <ui:include src="../componentes/botoesEditar.xhtml">
+                <ui:param name="controller" value="#{funcionarioController}"/>
+            </ui:include>
+        </p:panelGrid>
+    </ui:define>
+
+</ui:composition>

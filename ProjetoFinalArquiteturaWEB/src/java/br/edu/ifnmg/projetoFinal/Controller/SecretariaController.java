@@ -29,55 +29,21 @@ public class SecretariaController extends ControllerGenerico<Secretaria> impleme
     private SecretariaRepositorio repositorio;
 
     public SecretariaController() {
-        super("", "", "");
+        super("ListaSecretaria.xhtml", "DadosSecretaria.xhtml", "NovaSecretaria.xhtml");
         entidade = new Secretaria();
         filtro = new Secretaria();
     }
 
     @Override
-    public String apagar() {
-        if (repositorio.Apagar(entidade)) {
-            MensagemSucesso("Sucesso!", "Registro removido com sucesso!");
-            entidade = new Secretaria();
-            return "NovaSecretaria.xhtml";
-        } else {
-            MensagemErro("Erro!", "Consulte o administrador do sistema!");
-            return null;
-        }
+    public String limparfiltros() {
+        filtro = new Secretaria();
+        return super.limparfiltros(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String editar() {
-        if (repositorio.Refresh(entidade)) {
-            MensagemSucesso("Sucesso!", "Registro alterado com sucesso!");
-            return "DadosSecretaria.xhtml";
-        } else {
-            MensagemErro("Erro!", "Consulte o administrador do sistema!");
-            return null;
-        }
-    }
-
-    @Override
-    public String salvar() {
-        if (repositorio.Salvar(entidade)) {
-            MensagemSucesso("Sucesso!", "Registro salvo com sucesso!");
-            List<Secretaria> lista = repositorio.Buscar(new Secretaria());
-            entidade = lista.get(0);
-            return "DadosSecretaria.xhtml";
-        } else {
-            MensagemErro("Erro!", "Consulte o administrador do sistema!");
-            return "";
-        }
-    }
-
-    public String verificarCadastro() {
-        List<Secretaria> lista = repositorio.Buscar(new Secretaria());
-        if (lista.isEmpty()) {
-            return "NovaSecretaria.xhtml";
-        } else {
-            entidade = lista.get(0);
-            return "DadosSecretaria.xhtml";
-        }
+    public String novo() {
+        entidade = new Secretaria();
+        return super.novo(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @PostConstruct

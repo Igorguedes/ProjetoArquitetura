@@ -18,11 +18,12 @@
 
             <div id="top">
                 <p:menubar>
-                    <p:menuitem value="Usuário" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaUsuario.xhtml" />
-                    <p:menuitem value="Secretaria" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="#{secretariaController.verificarCadastro()}" />
-                    <p:menuitem value="Cargo" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaCargo.xhtml" />
-                    <p:menuitem value="Agencia Bancaria" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaAgenciaBancaria.xhtml" />
-                    <p:menuitem value="Gratificação" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaGratificacao.xhtml" />
+                    <p:menuitem value="Usuário" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaUsuario.xhtml" immediate="true" />
+                    <p:menuitem value="Secretaria" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaSecretaria.xhtml" immediate="true" />
+                    <p:menuitem value="Gratificação" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaGratificacao.xhtml" immediate="true" />
+                    <p:menuitem value="Cargo" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaCargo.xhtml" immediate="true" />
+                    <p:menuitem value="Agencia Bancaria" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaAgenciaBancaria.xhtml" immediate="true" />
+                    <p:menuitem value="Funcionário" rendered="#{loginController.visibilidadeCoordenador()}" ajax="false" action="ListaFuncionario.xhtml" immediate="true" />
                     <p:menuitem value="Sair" action="#{loginController.sair()}" ajax="false" immediate="true" />
                 </p:menubar>
             </div>

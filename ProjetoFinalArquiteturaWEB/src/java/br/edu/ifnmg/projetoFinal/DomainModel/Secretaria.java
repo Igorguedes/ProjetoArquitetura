@@ -87,7 +87,7 @@ public class Secretaria implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.ifnmg.projetoFinal.DomainModel.Secretaria[ id=" + id + " ]";
+        return this.nome;
     }
 
 }
