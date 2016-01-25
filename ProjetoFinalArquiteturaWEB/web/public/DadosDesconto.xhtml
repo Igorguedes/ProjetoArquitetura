@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <f:facet name="header">
+            Dados do Desconto - ID: #{descontoController.entidade.id}
+        </f:facet>
+        <p:panelGrid columns="2">
+            Porcentagem:
+            <p:spinner stepFactor="0.25" value="#{descontoController.entidade.porcentagem}" required="true" requiredMessage="Campo Porcentagem Obrigatório"/>
+            Mês:
+            <p:spinner value="#{descontoController.entidade.mes}" required="true" requiredMessage="Campo Mês Obrigatório"/>
+            Ano:
+            <p:spinner value="#{descontoController.entidade.ano}" required="true" requiredMessage="Campo Ano Obrigatório"/>
+            Funcionário:
+            <p:selectOneMenu value="#{descontoController.entidade.funcionario}" converter="${funcionarioConvert}">
+                <f:selectItems value="#{funcionarioController.listagem}" />
+            </p:selectOneMenu>
+            <ui:include src="../componentes/botoesEditar.xhtml">
+                <ui:param name="controller" value="#{descontoController}"/>
+            </ui:include>
+        </p:panelGrid>
+    </ui:define>
+
+</ui:composition>

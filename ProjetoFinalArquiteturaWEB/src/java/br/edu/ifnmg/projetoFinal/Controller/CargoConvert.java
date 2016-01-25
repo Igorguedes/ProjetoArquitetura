@@ -18,7 +18,7 @@ import javax.faces.convert.Converter;
 
 /**
  *
- * @author andre
+ * @author Jardel
  */
 @Named(value = "cargoConvert")
 @SessionScoped

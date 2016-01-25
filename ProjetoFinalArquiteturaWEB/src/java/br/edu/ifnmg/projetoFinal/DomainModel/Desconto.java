@@ -6,35 +6,32 @@
 package br.edu.ifnmg.projetoFinal.DomainModel;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Igor
  */
 @Entity
-public class AgenciaBancaria implements Serializable {
+public class Desconto implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(length = 500, nullable = false, unique = true)
-    private String nome;
+    private double porcentagem;
 
-    @Column(length = 500, nullable = false, unique = true)
-    private String telefone;
+    @ManyToOne
+    private Funcionario funcionario;
 
-    @Column(length = 500, nullable = false)
-    private String endereco;
+    private int mes;
 
-    @Column(length = 500, nullable = false, unique = true)
-    private String numeroAgencia;
+    private int ano;
 
     public Long getId() {
         return id;
@@ -44,36 +41,36 @@ public class AgenciaBancaria implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public double getPorcentagem() {
+        return porcentagem;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setPorcentagem(double porcentagem) {
+        this.porcentagem = porcentagem;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public int getMes() {
+        return mes;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setMes(int mes) {
+        this.mes = mes;
     }
 
-    public String getNumeroAgencia() {
-        return numeroAgencia;
+    public int getAno() {
+        return ano;
     }
 
-    public void setNumeroAgencia(String numeroAgencia) {
-        this.numeroAgencia = numeroAgencia;
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
     @Override
@@ -86,10 +83,10 @@ public class AgenciaBancaria implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof AgenciaBancaria)) {
+        if (!(object instanceof Desconto)) {
             return false;
         }
-        AgenciaBancaria other = (AgenciaBancaria) object;
+        Desconto other = (Desconto) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -98,7 +95,7 @@ public class AgenciaBancaria implements Serializable {
 
     @Override
     public String toString() {
-        return this.nome + "(" + this.numeroAgencia + ")";
+        return "br.edu.ifnmg.projetoFinal.DomainModel.Desconto[ id=" + id + " ]";
     }
 
 }

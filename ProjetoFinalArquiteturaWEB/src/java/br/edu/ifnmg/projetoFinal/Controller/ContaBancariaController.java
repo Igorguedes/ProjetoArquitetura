@@ -28,9 +28,21 @@ public class ContaBancariaController extends ControllerGenerico<ContaBancaria> i
     private ContaBancariaRepositorio repositorio;
 
     public ContaBancariaController() {
-        super("ListaContaBancaria.xhtml", "DadosContaBancaria.xhtml", "NovoContaBancaria.xhtml");
+        super("ListaContaBancaria.xhtml", "DadosContaBancaria.xhtml", "NovaContaBancaria.xhtml");
         entidade = new ContaBancaria();
         filtro = new ContaBancaria();
+    }
+
+    @Override
+    public String limparfiltros() {
+        filtro = new ContaBancaria();
+        return super.limparfiltros(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String novo() {
+        entidade = new ContaBancaria();
+        return super.novo(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @PostConstruct

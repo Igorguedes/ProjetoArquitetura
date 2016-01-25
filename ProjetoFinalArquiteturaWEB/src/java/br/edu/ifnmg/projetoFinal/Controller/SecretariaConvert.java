@@ -5,7 +5,6 @@
  */
 package br.edu.ifnmg.projetoFinal.Controller;
 
-import br.edu.ifnmg.projetoFinal.DomainModel.Gratificacao;
 import br.edu.ifnmg.projetoFinal.DomainModel.Repositorio.SecretariaRepositorio;
 import br.edu.ifnmg.projetoFinal.DomainModel.Secretaria;
 import javax.inject.Named;
@@ -18,7 +17,7 @@ import javax.faces.convert.Converter;
 
 /**
  *
- * @author andre
+ * @author Jardel
  */
 @Named(value = "secretariaConvert")
 @SessionScoped

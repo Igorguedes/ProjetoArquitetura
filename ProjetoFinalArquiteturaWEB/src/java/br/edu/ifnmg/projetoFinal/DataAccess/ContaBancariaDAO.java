@@ -23,10 +23,9 @@ public class ContaBancariaDAO extends DAOGenerico<ContaBancaria> implements Cont
 
     @Override
     public List<ContaBancaria> Buscar(ContaBancaria filtro) {
-        return Like("numeroconta", filtro.getNumeroConta())
-                .IgualA("agenciabancaria", filtro.getId())
+        return Like("numeroConta", filtro.getNumeroConta())
                 .IgualA("id", filtro.getId())
-                .OrderBy("numeroconta", "ASC")
+                .OrderBy("numeroConta", "ASC")
                 .Buscar();
     }
 

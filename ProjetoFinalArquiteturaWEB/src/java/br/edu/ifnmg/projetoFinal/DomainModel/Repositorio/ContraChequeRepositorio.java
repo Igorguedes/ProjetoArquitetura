@@ -10,7 +10,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author André Fellype
+ * @author Igor
  */
 @Local
 public interface ContraChequeRepositorio extends Repositorio<ContraCheque> {

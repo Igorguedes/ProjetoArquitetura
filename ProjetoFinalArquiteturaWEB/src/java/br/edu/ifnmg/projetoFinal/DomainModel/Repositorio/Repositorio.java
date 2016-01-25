@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author André Fellype
+ * @author Igor
  */
 public interface Repositorio<T> {
 

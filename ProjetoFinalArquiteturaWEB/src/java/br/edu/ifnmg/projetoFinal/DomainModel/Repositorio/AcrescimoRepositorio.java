@@ -5,14 +5,14 @@
  */
 package br.edu.ifnmg.projetoFinal.DomainModel.Repositorio;
 
-import br.edu.ifnmg.projetoFinal.DomainModel.ContaBancaria;
+import br.edu.ifnmg.projetoFinal.DomainModel.Acrescimo;
 import javax.ejb.Local;
 
 /**
  *
- * @author Igor
+ * @author Jardel
  */
 @Local
-public interface ContaBancariaRepositorio extends Repositorio<ContaBancaria> {
-
+public interface AcrescimoRepositorio extends Repositorio<Acrescimo> {
+    
 }
