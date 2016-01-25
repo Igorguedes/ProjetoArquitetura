@@ -10,13 +10,30 @@
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>
         <title>Facelets Template</title>
+        <style>
+            #logo{
+                float: top;
+                background-color: black;
+                width: 100%;
+                height: 150px;
+                color: white;
+                font-weight: bold;
+                font-size: 40px;
+                font-variant: small-caps;
+                text-align: center;
+            }
+        </style>
     </h:head>
 
     <h:body>
 
         <h:form>
 
-            <div id="top">
+            <div id="logo">
+                <br/>SIGRH - Sistema Gerenciador de Recursos Humanos
+            </div>
+
+            <div id="content" class="center_content">
                 <p:menubar>
                     <p:menuitem value="Usuário" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaUsuario.xhtml" immediate="true" />
                     <p:menuitem value="Secretaria" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaSecretaria.xhtml" immediate="true" />
@@ -29,12 +46,9 @@
                     <p:menuitem value="Acrescimo" rendered="#{loginController.visibilidadeCoordenador()}" ajax="false" action="ListaAcrescimo.xhtml" />
                     <p:menuitem value="Desconto" rendered="#{loginController.visibilidadeCoordenador()}" ajax="false" action="ListaDesconto.xhtml" />
                     <p:menuitem value="Contra Cheque" ajax="false" action="ListaContraCheque.xhtml" />
-                    <p:menuitem value="Folha de Pagamento" rendered="#{loginController.visibilidadeAdministrador()}" />
+                    <p:menuitem value="Folha de Pagamento" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaFolhaPagamento.xhtml" />
                     <p:menuitem value="Sair" action="#{loginController.sair()}" ajax="false" immediate="true" />
                 </p:menubar>
-            </div>
-
-            <div id="content" class="center_content">
                 <p:panel>
                     <p:growl id="global" />
                     <ui:insert name="content">Content</ui:insert>

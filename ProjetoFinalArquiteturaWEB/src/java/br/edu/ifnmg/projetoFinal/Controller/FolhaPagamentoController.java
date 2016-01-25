@@ -5,11 +5,13 @@
  */
 package br.edu.ifnmg.projetoFinal.Controller;
 
+import br.edu.ifnmg.projetoFinal.DomainModel.ContraCheque;
 import br.edu.ifnmg.projetoFinal.DomainModel.Repositorio.FolhaPagamentoRepositorio;
 import br.edu.ifnmg.projetoFinal.DomainModel.FolhaPagamento;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 
@@ -28,9 +30,36 @@ public class FolhaPagamentoController extends ControllerGenerico<FolhaPagamento>
     private FolhaPagamentoRepositorio repositorio;
 
     public FolhaPagamentoController() {
-        super("ListaFolhaPagamento.xhtml", "DadosFolhaPagamento.xhtml", "NovoFolhaPagamento.xhtml");
+        super("ListaFolhaPagamento.xhtml", "", "NovaFolhaPagamento.xhtml");
         entidade = new FolhaPagamento();
         filtro = new FolhaPagamento();
+    }
+
+    @Override
+    public String salvar() {
+        Double total = 0.00;
+        List<ContraCheque> lista = repositorio.valorTotal(entidade);
+        for (ContraCheque contraCheque : lista) {
+            total += contraCheque.getSalarioLiquido();
+        }
+        entidade.setValorTotal(total);
+        return super.salvar(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String apagarFolha(FolhaPagamento folhaPagamento) {
+        if (repositorio.Apagar(folhaPagamento)) {
+            MensagemSucesso("Sucesso!", "Registro removido com sucesso!");
+            return paginaListagem;
+        } else {
+            MensagemErro("Erro!", "Consulte o administrador do sistema!");
+            return null;
+        }
+    }
+
+    @Override
+    public String novo() {
+        entidade = new FolhaPagamento();
+        return super.novo(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @PostConstruct

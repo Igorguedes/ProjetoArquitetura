@@ -5,10 +5,12 @@
  */
 package br.edu.ifnmg.projetoFinal.DataAccess;
 
+import br.edu.ifnmg.projetoFinal.DomainModel.ContraCheque;
 import br.edu.ifnmg.projetoFinal.DomainModel.FolhaPagamento;
 import br.edu.ifnmg.projetoFinal.DomainModel.Repositorio.FolhaPagamentoRepositorio;
 import java.util.List;
 import javax.ejb.Singleton;
+import javax.persistence.Query;
 
 /**
  *
@@ -24,8 +26,25 @@ public class FolhaPagamentoDAO extends DAOGenerico<FolhaPagamento> implements Fo
     @Override
     public List<FolhaPagamento> Buscar(FolhaPagamento filtro) {
         return IgualA("id", filtro.getId())
-                .OrderBy("data", "ASC")
                 .Buscar();
+    }
+
+    @Override
+    public List<ContraCheque> valorTotal(FolhaPagamento folhaPagamento) {
+        try {
+            if (folhaPagamento != null) {
+                String Consulta = "select o from ContraCheque o ";
+                Consulta = Consulta + " where o.mes = " + Integer.toString(folhaPagamento.getMes()) + " ";
+                Consulta = Consulta + " and o.ano = " + Integer.toString(folhaPagamento.getAno()) + " ";
+                Query query = manager.createQuery(Consulta);
+                return query.getResultList();
+            } else {
+                return null;
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 }

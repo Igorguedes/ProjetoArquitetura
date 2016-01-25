@@ -6,15 +6,11 @@
 package br.edu.ifnmg.projetoFinal.DomainModel;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -28,8 +24,9 @@ public class FolhaPagamento implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Temporal(TemporalType.DATE)
-    private Date data;
+    private int mes;
+
+    private int ano;
 
     @Column(precision = 8, scale = 2)
     private Double valorTotal;
@@ -42,12 +39,20 @@ public class FolhaPagamento implements Serializable {
         this.id = id;
     }
 
-    public Date getData() {
-        return data;
+    public int getMes() {
+        return mes;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
     public Double getValorTotal() {

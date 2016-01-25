@@ -5,7 +5,9 @@
  */
 package br.edu.ifnmg.projetoFinal.DomainModel.Repositorio;
 
+import br.edu.ifnmg.projetoFinal.DomainModel.ContraCheque;
 import br.edu.ifnmg.projetoFinal.DomainModel.FolhaPagamento;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,4 +17,5 @@ import javax.ejb.Local;
 @Local
 public interface FolhaPagamentoRepositorio extends Repositorio<FolhaPagamento> {
 
+    public List<ContraCheque> valorTotal(FolhaPagamento folhaPagamento);
 }

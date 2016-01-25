@@ -6,7 +6,6 @@
 package br.edu.ifnmg.projetoFinal.Controller;
 
 import br.edu.ifnmg.projetoFinal.DomainModel.Cargo;
-import static br.edu.ifnmg.projetoFinal.DomainModel.Cargo_.gratificacao;
 import br.edu.ifnmg.projetoFinal.DomainModel.Repositorio.CargoRepositorio;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
