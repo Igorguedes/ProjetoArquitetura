@@ -33,6 +33,18 @@ public class DependentesController extends ControllerGenerico<Dependentes> imple
         filtro = new Dependentes();
     }
 
+    @Override
+    public String limparfiltros() {
+        filtro = new Dependentes();
+        return super.limparfiltros(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String novo() {
+        entidade = new Dependentes();
+        return super.novo(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @PostConstruct
     public void configurar() {
         setDao(repositorio);

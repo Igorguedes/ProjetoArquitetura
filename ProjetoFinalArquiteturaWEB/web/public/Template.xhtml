@@ -24,6 +24,7 @@
                     <p:menuitem value="Cargo" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaCargo.xhtml" immediate="true" />
                     <p:menuitem value="Agencia Bancaria" rendered="#{loginController.visibilidadeAdministrador()}" ajax="false" action="ListaAgenciaBancaria.xhtml" immediate="true" />
                     <p:menuitem value="Funcionário" rendered="#{loginController.visibilidadeCoordenador()}" ajax="false" action="ListaFuncionario.xhtml" immediate="true" />
+                    <p:menuitem value="Dependente" rendered="#{loginController.visibilidadeCoordenador()}" ajax="false" action="ListaDependentes.xhtml" immediate="true" />
                     <p:menuitem value="Sair" action="#{loginController.sair()}" ajax="false" immediate="true" />
                 </p:menubar>
             </div>
