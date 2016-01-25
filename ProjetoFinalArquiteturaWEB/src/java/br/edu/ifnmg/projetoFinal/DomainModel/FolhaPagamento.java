@@ -32,7 +32,7 @@ public class FolhaPagamento implements Serializable {
     private Date data;
 
     @Column(precision = 8, scale = 2)
-    private BigDecimal valorTotal;
+    private Double valorTotal;
 
     public Long getId() {
         return id;
@@ -50,11 +50,11 @@ public class FolhaPagamento implements Serializable {
         this.data = data;
     }
 
-    public BigDecimal getValorTotal() {
+    public Double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(BigDecimal valorTotal) {
+    public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
     }
 

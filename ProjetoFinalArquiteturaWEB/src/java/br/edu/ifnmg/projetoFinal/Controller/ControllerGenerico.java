@@ -79,7 +79,6 @@ public class ControllerGenerico<T> {
             MensagemErro("Erro!", "Consulte o administrador do sistema!");
             return null;
         }
-
     }
 
     public T getEntidade() {

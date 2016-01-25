@@ -45,7 +45,7 @@ public class Funcionario implements Serializable {
     private String email;
 
     @Column(precision = 8, scale = 2)
-    private BigDecimal salario;
+    private Double salario;
 
     @Column(length = 500, nullable = false)
     private String status;
@@ -112,11 +112,11 @@ public class Funcionario implements Serializable {
         this.email = email;
     }
 
-    public BigDecimal getSalario() {
+    public Double getSalario() {
         return salario;
     }
 
-    public void setSalario(BigDecimal salario) {
+    public void setSalario(Double salario) {
         this.salario = salario;
     }
 

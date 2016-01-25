@@ -6,6 +6,7 @@
 package br.edu.ifnmg.projetoFinal.DomainModel;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,8 @@ public class Desconto implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private double porcentagem;
+    @Column(precision = 8, scale = 2)
+    private Double porcentagem;
 
     @ManyToOne
     private Funcionario funcionario;
@@ -41,11 +43,11 @@ public class Desconto implements Serializable {
         this.id = id;
     }
 
-    public double getPorcentagem() {
+    public Double getPorcentagem() {
         return porcentagem;
     }
 
-    public void setPorcentagem(double porcentagem) {
+    public void setPorcentagem(Double porcentagem) {
         this.porcentagem = porcentagem;
     }
 

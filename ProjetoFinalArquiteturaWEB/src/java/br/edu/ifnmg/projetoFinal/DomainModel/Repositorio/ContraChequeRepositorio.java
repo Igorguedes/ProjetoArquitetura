@@ -5,7 +5,10 @@
  */
 package br.edu.ifnmg.projetoFinal.DomainModel.Repositorio;
 
+import br.edu.ifnmg.projetoFinal.DomainModel.Acrescimo;
 import br.edu.ifnmg.projetoFinal.DomainModel.ContraCheque;
+import br.edu.ifnmg.projetoFinal.DomainModel.Desconto;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,4 +18,7 @@ import javax.ejb.Local;
 @Local
 public interface ContraChequeRepositorio extends Repositorio<ContraCheque> {
 
+    public List<Acrescimo> totalAcrescimo(ContraCheque contraCheque);
+
+    public List<Desconto> totalDesconto(ContraCheque contraCheque);
 }

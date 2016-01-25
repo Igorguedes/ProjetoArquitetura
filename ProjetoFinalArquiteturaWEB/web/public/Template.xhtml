@@ -28,7 +28,7 @@
                     <p:menuitem value="Conta Bancaria" rendered="#{loginController.visibilidadeCoordenador()}" ajax="false" action="ListaContaBancaria.xhtml" immediate="true" />
                     <p:menuitem value="Acrescimo" rendered="#{loginController.visibilidadeCoordenador()}" ajax="false" action="ListaAcrescimo.xhtml" />
                     <p:menuitem value="Desconto" rendered="#{loginController.visibilidadeCoordenador()}" ajax="false" action="ListaDesconto.xhtml" />
-                    <p:menuitem value="Contra Cheque" />
+                    <p:menuitem value="Contra Cheque" ajax="false" action="ListaContraCheque.xhtml" />
                     <p:menuitem value="Folha de Pagamento" rendered="#{loginController.visibilidadeAdministrador()}" />
                     <p:menuitem value="Sair" action="#{loginController.sair()}" ajax="false" immediate="true" />
                 </p:menubar>

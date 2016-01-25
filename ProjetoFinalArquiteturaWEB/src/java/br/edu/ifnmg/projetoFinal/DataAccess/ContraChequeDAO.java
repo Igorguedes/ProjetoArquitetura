@@ -5,10 +5,13 @@
  */
 package br.edu.ifnmg.projetoFinal.DataAccess;
 
+import br.edu.ifnmg.projetoFinal.DomainModel.Acrescimo;
 import br.edu.ifnmg.projetoFinal.DomainModel.ContraCheque;
+import br.edu.ifnmg.projetoFinal.DomainModel.Desconto;
 import br.edu.ifnmg.projetoFinal.DomainModel.Repositorio.ContraChequeRepositorio;
 import java.util.List;
 import javax.ejb.Singleton;
+import javax.persistence.Query;
 
 /**
  *
@@ -24,8 +27,47 @@ public class ContraChequeDAO extends DAOGenerico<ContraCheque> implements Contra
     @Override
     public List<ContraCheque> Buscar(ContraCheque filtro) {
         return IgualA("id", filtro.getId())
-                .OrderBy("data", "ASC")
                 .Buscar();
+    }
+
+    @Override
+    public List<Acrescimo> totalAcrescimo(ContraCheque contraCheque) {
+        try {
+            if (contraCheque != null) {
+                String Consulta = "select o from Acrescimo o join o.funcionario u ";
+
+                Consulta = Consulta + " where u.id = " + contraCheque.getFuncionario().getId().toString() + " ";
+                Consulta = Consulta + " and o.mes = " + Integer.toString(contraCheque.getMes()) + " ";
+                Consulta = Consulta + " and o.ano = " + Integer.toString(contraCheque.getAno()) + " ";
+                Query query = manager.createQuery(Consulta);
+                return query.getResultList();
+            } else {
+                return null;
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Desconto> totalDesconto(ContraCheque contraCheque) {
+        try {
+            if (contraCheque != null) {
+                String Consulta = "select o from Desconto o join o.funcionario u ";
+
+                Consulta = Consulta + " where u.id = " + contraCheque.getFuncionario().getId().toString() + " ";
+                Consulta = Consulta + " and o.mes = " + contraCheque.getMes() + " ";
+                Consulta = Consulta + " and o.ano = " + contraCheque.getAno()+ " ";
+                Query query = manager.createQuery(Consulta);
+                return query.getResultList();
+            } else {
+                return null;
+            }
+
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 }

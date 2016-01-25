@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <f:facet name="header">
+            Novo Contra Cheque
+        </f:facet>
+        <p:panelGrid columns="2">
+            Funcionario:
+            <p:selectOneMenu value="#{contraChequeController.entidade.funcionario}" converter="${funcionarioConvert}">
+                <f:selectItems value="#{funcionarioController.listagem}" />
+            </p:selectOneMenu>
+            Mês:
+            <p:spinner value="#{contraChequeController.entidade.mes}" required="true" requiredMessage="Campo Mês Obrigatório"/>
+            Ano:
+            <p:spinner value="#{contraChequeController.entidade.ano}" required="true" requiredMessage="Campo Ano Obrigatório"/>
+            <ui:include src="../componentes/botoesCadastro.xhtml">
+                <ui:param name="controller" value="#{contraChequeController}"/>
+            </ui:include>
+        </p:panelGrid>
+    </ui:define>
+
+</ui:composition>
